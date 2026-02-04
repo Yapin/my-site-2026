@@ -1,0 +1,15 @@
+/*!
+ * My Snow Monkey custom styles
+ * このファイルをエントリーポイントとして SCSS を記述します。
+ *
+ * 開発時: npm run dev
+ * 本番ビルド: npm run build
+ */
+
+// 必要に応じてこのファイルからパーシャルを読み込みます。
+// 例: @use 'partials/_example';
+
+body {
+	// 開発開始時の確認用。不要になったら削除してください。
+	// outline: 1px solid magenta;
+}

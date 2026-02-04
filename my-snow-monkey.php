@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin name: My Snow Monkey
  * Description: このプラグインに、あなたの Snow Monkey 用カスタマイズコードを書いてください。
@@ -13,8 +14,8 @@
 /**
  * Snow Monkey 以外のテーマを利用している場合は有効化してもカスタマイズが反映されないようにする
  */
-$theme = wp_get_theme( get_template() );
-if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->template ) {
+$theme = wp_get_theme(get_template());
+if ('snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->template) {
 	return;
 }
 
@@ -23,14 +24,14 @@ if ( 'snow-monkey' !== $theme->template && 'snow-monkey/resources' !== $theme->t
  *
  * @var string
  */
-define( 'MY_SNOW_MONKEY_URL', untrailingslashit( plugin_dir_url( __FILE__ ) ) );
+define('MY_SNOW_MONKEY_URL', untrailingslashit(plugin_dir_url(__FILE__)));
 
 /**
  * Directory path of this plugin
  *
  * @var string
  */
-define( 'MY_SNOW_MONKEY_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) );
+define('MY_SNOW_MONKEY_PATH', untrailingslashit(plugin_dir_path(__FILE__)));
 
 /**
  * Display message in console.log if this plugin is enabled.
@@ -38,10 +39,12 @@ define( 'MY_SNOW_MONKEY_PATH', untrailingslashit( plugin_dir_path( __FILE__ ) ) 
 add_action(
 	'wp_footer',
 	function () {
-		if ( is_user_logged_in() ) :
-			?>
-			<script>console.log( 'My Snow Monkey plugin is active' );</script>
-			<?php
+		if (is_user_logged_in()) :
+?>
+		<script>
+			console.log('My Snow Monkey plugin is active');
+		</script>
+<?php
 		endif;
 	}
 );

@@ -1,0 +1,13 @@
+{
+	"name": "my-snow-monkey-plugin",
+	"version": "1.0.0",
+	"private": true,
+	"description": "My Snow Monkey WordPress plugin development environment (SCSS + GitHub Actions deploy).",
+	"scripts": {
+		"dev": "sass --watch assets/scss:assets/css --style=expanded --embed-source-map",
+		"build": "sass assets/scss:assets/css --style=compressed --no-source-map"
+	},
+	"devDependencies": {
+		"sass": "^1.80.0"
+	}
+}
