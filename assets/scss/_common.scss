@@ -1,0 +1,54 @@
+@use 'util/config' as u;
+/** 共通 **/
+
+// 強制非表示
+.correctional-hide {
+	display: none !important;
+}
+
+// 予期せぬ改行をさせない
+.no__br {
+	display: inline-block;
+}
+
+// セクションタイトルの下線
+.smb-section__title:after {
+	background-color: unset;
+}
+
+// 注意書きの文字色
+.color__caution {
+	color: #cd162c;
+	&__bold {
+		color: #cd162c;
+		font-weight: bold;
+	}
+}
+
+// 区切り線
+hr.wp-block-separator {
+	border: none;
+	border-top: 1px dotted #1e4d9f;
+}
+
+// ページタイトル
+h1.c-entry__body {
+	text-align: center;
+}
+
+.no_pc {
+	display: block !important;
+	@include u.mq-down(md) {
+		display: none !important;
+	}
+}
+
+.text_center {
+	text-align: center;
+}
+@include u.mq-up(md) {
+	a[href^='tel:'] {
+		display: inline-block; /* IE用 */
+		pointer-events: none;
+	}
+}

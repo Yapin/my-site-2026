@@ -1,0 +1,99 @@
+@charset "UTF-8";
+// 共通変数などを格納するSCSSファイルです
+
+$sizes: xl, lg, md, sm, xs;
+// ===================================================================
+// ブレイクポイント設定
+// ===================================================================
+
+// 変数の定義
+// 色
+$color-illust-main: #8d37a2; // （こい紫・イラスト主線）
+$color-preevent-bg: #b880e4; // （プレイベイラストの背景色紫）
+$color-light-purple: #d2c2ea; // （うす紫）
+$color-pink: #ee86c5; // （ピンク）
+$color-light-blue: #80d6f6; // （水色）
+$color-deep-pink: #dd5b93; // （こいピンク）
+$color-light-green: #9fe5b2; // （うすいグリーン）
+$color-yellow: #f0e177; // （黄色）
+$color-light-yellow: #f0ec80; // （うすい黄色）
+
+$color-background-header-footer: #133368;
+$color-text-header-footer: #fff;
+
+$color-infomation-block: #204ca3;
+// min-widthで利用
+$breakpoint-up: (
+	'sm': 'screen and (min-width: 375px)',
+	'md': 'screen and (min-width: 768px)',
+	'lg': 'screen and (min-width: 1024px)',
+	'xl': 'screen and (min-width: 1240px)',
+) !default;
+
+// max-widthで利用
+$breakpoint-down: (
+	'sm': 'screen and (max-width: 376px)',
+	'sm2': 'screen and (max-width: 426px)',
+	'md': 'screen and (max-width: 768px)',
+	'lg': 'screen and (max-width: 1024px)',
+	'xl': 'screen and (max-width: 1240px)',
+) !default;
+
+// @mixinの定義
+// min-widthで利用
+@mixin mq-up($breakpoint: sm) {
+	@media #{map-get($breakpoint-up, $breakpoint)} {
+		@content;
+	}
+}
+// max-widthで利用
+@mixin mq-down($breakpoint: sm) {
+	@media #{map-get($breakpoint-down, $breakpoint)} {
+		@content;
+	}
+}
+
+/* フォント */
+@mixin font-family {
+	font-family: vdl-megamaru, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+/* 見出しデザイン */
+@mixin h1 {
+	background-color: #214d98;
+	color: #f2f2f2;
+	text-align: center;
+	width: 100%;
+	max-width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1rem 0;
+}
+
+@mixin h2 {
+	border: unset;
+	background-color: unset;
+	background-color: #214d98;
+	color: #f2f2f2;
+}
+
+@mixin h3 {
+	color: #204da2;
+	font-weight: bold;
+	border: unset;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #1e4d9f;
+}
+
+@mixin h4 {
+	margin-bottom: 10px;
+	border-bottom-width: 3px;
+	border-bottom-style: double;
+	border-bottom-color: #1e50a2;
+	font-size: 18px;
+	color: #1e50a2;
+	font-weight: bold;
+}
