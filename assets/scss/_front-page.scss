@@ -7,7 +7,7 @@
 // =====================================================
 
 // ---------- Variables ----------
-$mv-text-max-width: 52rem;
+$mv-text-max-width: 55rem;
 $mv-radius: 24px;
 
 $mv-pad-y: clamp(24px, 5vw, 72px);
@@ -149,14 +149,14 @@ $bp-md: 768px;
 		margin-right: $mv-inner-ml;
 
 		// Only under text: readability backing (not global dark overlay)
-		background: radial-gradient(circle at 35% 45%, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0) 62%);
+		background: radial-gradient(circle at 35% 45%, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0) 100%);
 
 		padding: $mv-inner-pad;
 		border-radius: $mv-radius;
 	}
 
 	.mv__catch {
-		margin: 0 0 10px;
+		margin: 0 0 2rem;
 		font-weight: 500; // readability priority
 		line-height: 1.35;
 		letter-spacing: 0.04em;
