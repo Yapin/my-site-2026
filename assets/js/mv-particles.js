@@ -21,11 +21,11 @@
             // 背景の暖色トーンに合わせた色（白＋少し黄＋薄ピンク）
             color: { value: ["#ffffff", "#fff2d8", "#ffe2f0"] },
 
-            shape: { type: "circle" },
+            shape: { type: ["circle", "star"] },
 
             opacity: {
-                value: { min: 0.18, max: 0.55 },
-                animation: { enable: true, speed: 0.9, minimumValue: 0.12, sync: false }
+                value: { min: 0.25, max: 0.75 },
+                animation: { enable: true, speed: 2.2, minimumValue: 1.2, sync: false }
             },
 
             size: {
@@ -35,7 +35,7 @@
 
             move: {
                 enable: true,
-                speed: isMobile ? 0.55 : 0.75,     // 速さ（もっと速くしたいなら 0.9〜1.2）
+                speed: isMobile ? 0.9 : 1.4,     // 速さ（もっと速くしたいなら 0.9〜1.2）
                 direction: "top",
                 straight: false,
                 random: true,
