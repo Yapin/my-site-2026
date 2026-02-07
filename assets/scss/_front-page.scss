@@ -59,6 +59,11 @@ $bp-md: 768px;
 
 // ---------- MV Base ----------
 .mv.mv--abstract {
+	// 親が .c-container のときでもビューポート幅いっぱいに表示する（コンテナからの breakout）
+	width: 100vw;
+	margin-inline: calc(-50vw + 50%);
+	box-sizing: border-box;
+
 	position: relative;
 	min-height: 100vh;
 	overflow: hidden;
