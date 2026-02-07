@@ -57,3 +57,4 @@ require_once MY_SNOW_MONKEY_PATH . '/templates/load.php';
 // initialize hooks
 PsetHookAction::init();
 PsetHookFilter::init();
+PsetShortcode::init();
