@@ -33,9 +33,6 @@ define('MY_SNOW_MONKEY_URL', untrailingslashit(plugin_dir_url(__FILE__)));
  */
 define('MY_SNOW_MONKEY_PATH', untrailingslashit(plugin_dir_path(__FILE__)));
 
-// 共通定数（functions / templates より先に読み込む）
-require_once MY_SNOW_MONKEY_PATH . '/inc/constants.php';
-
 /**
  * Display message in console.log if this plugin is enabled.
  */
@@ -56,3 +53,7 @@ require_once MY_SNOW_MONKEY_PATH . '/functions/load.php';
 
 // load templates
 require_once MY_SNOW_MONKEY_PATH . '/templates/load.php';
+
+// initialize hooks
+PsetHookAction::init();
+PsetHookFilter::init();
