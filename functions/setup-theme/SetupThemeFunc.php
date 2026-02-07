@@ -34,7 +34,7 @@ class PsetSetupThemeFunc
             // tsParticles を CDN から読み込む
             wp_enqueue_script('tsparticles', 'https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js', [], null, true);
             // メインビジュアル用のパーティクルスクリプトを読み込む
-            wp_enqueue_script('mv-particles', plugin_dir_url(__FILE__) . 'assets/js/mv-particles.js', ['tsparticles'], '1.0.0', true);
+            wp_enqueue_script('mv-particles', MY_SNOW_MONKEY_URL . 'assets/js/mv-particles.js', ['tsparticles'], '1.0.0', true);
         }
     }
     /**
