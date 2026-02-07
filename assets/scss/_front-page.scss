@@ -56,7 +56,14 @@ $bp-md: 768px;
 		opacity: 0.2;
 	}
 }
-
+.c-entry__content {
+	&.p-entry-content {
+		&.c-container {
+			padding-left: unset;
+			padding-right: unset;
+		}
+	}
+}
 // ---------- MV Base ----------
 .mv.mv--abstract {
 	// 親が .c-container のときでもビューポート幅いっぱいに表示する（コンテナからの breakout）
