@@ -30,6 +30,12 @@ class PsetSetupThemeFunc
     {
         /* CSSファイル読み込み */
         wp_enqueue_style(self::MY_SNOW_MONKEY_STYLE_HANDLE, MY_SNOW_MONKEY_URL . '/assets/css/style.css', array(), filemtime(MY_SNOW_MONKEY_PATH . '/assets/css/style.css'));
+        if (is_front_page()) {
+            // tsParticles を CDN から読み込む
+            wp_enqueue_script('tsparticles', 'https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js', [], null, true);
+            // メインビジュアル用のパーティクルスクリプトを読み込む
+            wp_enqueue_script('mv-particles', plugin_dir_url(__FILE__) . 'assets/js/mv-particles.js', ['tsparticles'], '1.0.0', true);
+        }
     }
     /**
      * ページのスラッグを body タグの class に付与する

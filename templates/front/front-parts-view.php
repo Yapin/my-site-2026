@@ -15,6 +15,9 @@ class PsetFrontPartsView
         ob_start();
 ?>
         <section class="mv mv--abstract" role="banner" aria-label="Main Visual">
+            <!-- Particles layer -->
+            <div id="mv-particles" class="mv__particles" aria-hidden="true"></div>
+
             <div class="mv__inner">
                 <h1 class="mv__catch"><?php echo $catch; ?></h1>
                 <p class="mv__sub"><?php echo $sub; ?></p>
@@ -28,6 +31,7 @@ class PsetFrontPartsView
             <span class="mv__sparkle mv__sparkle--5" aria-hidden="true"></span>
             <span class="mv__sparkle mv__sparkle--6" aria-hidden="true"></span>
         </section>
+
 <?php
         $output = ob_get_clean();
         return $output;
