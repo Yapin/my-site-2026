@@ -19,8 +19,8 @@ class PsetShortcode
     public static function mv_shortcode($atts, $content, $tag)
     {
         $defaults = [
-            'catch' => '輝ける未来を創り、人々を笑顔にする',
-            'sub'   => 'クリエイティブなホスピタリティで伴走するDXデザイナー',
+            'catch' => 'あなたのキャッチコピー',
+            'sub'   => 'サブコピー',
         ];
         $atts = shortcode_atts($defaults, $atts, $tag);
         return PsetFrontPartsView::get_mv($atts);

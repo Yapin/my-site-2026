@@ -9,8 +9,8 @@ class PsetFrontPartsView
      */
     public static function get_mv($args = [])
     {
-        $catch = isset($args['catch']) ? esc_html($args['catch']) : '輝ける未来を創り、人々を笑顔にする';
-        $sub   = isset($args['sub'])   ? esc_html($args['sub'])   : 'クリエイティブなホスピタリティで伴走するDXデザイナー';
+        $catch = isset($args['catch']) ? esc_html($args['catch']) : 'あなたのキャッチコピー';
+        $sub   = isset($args['sub'])   ? esc_html($args['sub'])   : 'サブコピー';
 
         ob_start();
 ?>
