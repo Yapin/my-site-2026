@@ -128,7 +128,7 @@ $bp-md: 768px;
 	animation: bokehDrift 12s ease-in-out infinite alternate;
 }
 
-/* ---- Canvas（背面レイヤー・パーティクル用）---- */
+/* ---- Canvas（背面レイヤー・パーティクル用・JSでコンテナに合わせてサイズ設定）---- */
 .mv.mv--abstract .mv__canvas {
 	position: absolute;
 	inset: 0;
