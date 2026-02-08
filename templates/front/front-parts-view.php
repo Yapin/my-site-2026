@@ -14,22 +14,16 @@ class PsetFrontPartsView
 
         ob_start();
 ?>
-        <section class="mv mv--abstract" role="banner" aria-label="Main Visual">
-            <!-- Particles layer -->
-            <div id="mv-particles" class="mv__particles" aria-hidden="true"></div>
 
+        <section class="mv mv--abstract" role="banner" aria-label="Main Visual">
+            <!-- 背面: パーティクル用 canvas -->
+            <canvas id="myCanvas" class="mv__canvas" width="1024" height="768" aria-hidden="true"></canvas>
+
+            <!-- 前面: テキスト（背景透過で後ろのキラキラが通る） -->
             <div class="mv__inner">
                 <h1 class="mv__catch"><?php echo $catch; ?></h1>
                 <p class="mv__sub"><?php echo $sub; ?></p>
             </div>
-
-            <!-- Sparkles (bokeh lights) -->
-            <span class="mv__sparkle mv__sparkle--1" aria-hidden="true"></span>
-            <span class="mv__sparkle mv__sparkle--2" aria-hidden="true"></span>
-            <span class="mv__sparkle mv__sparkle--3" aria-hidden="true"></span>
-            <span class="mv__sparkle mv__sparkle--4" aria-hidden="true"></span>
-            <span class="mv__sparkle mv__sparkle--5" aria-hidden="true"></span>
-            <span class="mv__sparkle mv__sparkle--6" aria-hidden="true"></span>
         </section>
 
 <?php

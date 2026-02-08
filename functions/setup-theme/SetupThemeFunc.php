@@ -30,11 +30,13 @@ class PsetSetupThemeFunc
     {
         /* CSSファイル読み込み */
         wp_enqueue_style(self::MY_SNOW_MONKEY_STYLE_HANDLE, MY_SNOW_MONKEY_URL . '/assets/css/style.css', array(), filemtime(MY_SNOW_MONKEY_PATH . '/assets/css/style.css'));
+        // [mv] ショートコードは任意のページで使えるため、フロントでは常に読み込む（#mv-particles が無いページでは JS が何もしない）
         if (is_front_page()) {
-            // tsParticles を CDN から読み込む
-            wp_enqueue_script('tsparticles', 'https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js', [], null, true);
-            // メインビジュアル用のパーティクルスクリプトを読み込む
-            wp_enqueue_script('mv-particles', MY_SNOW_MONKEY_URL . '/assets/js/mv-particles.js', ['tsparticles'], '1.0.0', true);
+            // wp_enqueue_script('tsparticles', 'https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js', [], null, true);
+            // wp_enqueue_script('mv-particles', MY_SNOW_MONKEY_URL . '/assets/js/mv-particles.js', ['tsparticles'], '1.0.1', true);
+            wp_enqueue_script('createjs', 'https://code.createjs.com/1.0.0/createjs.min.js', [], null, true);
+            wp_enqueue_script('particlejs', 'https://cdn.rawgit.com/ics-creative/ParticleJS/release/1.0.0/libs/particlejs.min.js', [], null, true);
+            wp_enqueue_script('mv-particles', MY_SNOW_MONKEY_URL . '/assets/js/mv-particles.js', ['createjs', 'particlejs'], '1.0.1', true);
         }
     }
     /**

@@ -1,70 +1,75 @@
-(() => {
-    const root = document.querySelector(".mv.mv--abstract");
-    const host = document.getElementById("mv-particles");
-    if (!root || !host || !window.tsParticles) return;
+var particleSystem = null;
+var stage = null;
 
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+//  ウィンドウのロードが終わり次第、初期化コードを呼び出す。
+window.addEventListener("load", function () {
+    // Stageオブジェクトを作成します。表示リストのルートになります。
+    stage = new createjs.Stage("myCanvas");
 
-    // 端末負荷に応じて粒数を調整（スマホ少なめ）
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const baseCount = prefersReduced ? 0 : (isMobile ? 28 : 55);
+    // パーティクルシステム作成します。
+    particleSystem = new particlejs.ParticleSystem();
 
-    const config = {
-        fullScreen: { enable: false },
-        detectRetina: true,
-        fpsLimit: 60,
-        background: { color: { value: "transparent" } },
+    // パーティクルシステムの描画コンテナーを表示リストに登録します。
+    stage.addChild(particleSystem.container);
 
-        particles: {
-            number: { value: baseCount, density: { enable: true, area: isMobile ? 1000 : 900 } },
-
-            // 背景の暖色トーンに合わせた色（白＋少し黄＋薄ピンク）
-            color: { value: ["#ffffff", "#fff2d8", "#ffe2f0"] },
-
-            shape: { type: ["circle", "star"] },
-
-            opacity: {
-                value: { min: 0.25, max: 0.75 },
-                animation: { enable: true, speed: 2.2, minimumValue: 1.2, sync: false }
+    // Particle Develop( http://ics-web.jp/projects/particle-develop/ ) から書きだしたパーティクルの設定を読み込む
+    particleSystem.importFromJson(
+        // パラメーターJSONのコピー＆ペースト ここから--
+        {
+            "bgColor": "#00000",
+            "width": 1024,
+            "height": 768,
+            "emitFrequency": 50,
+            "startX": 451,
+            "startXVariance": 900,
+            "startY": 303,
+            "startYVariance": 715,
+            "initialDirection": "0",
+            "initialDirectionVariance": "360",
+            "initialSpeed": 0,
+            "initialSpeedVariance": 20,
+            "friction": 0.0775,
+            "accelerationSpeed": 0.0925,
+            "accelerationDirection": 273,
+            "startScale": 0.76,
+            "startScaleVariance": "1",
+            "finishScale": 0,
+            "finishScaleVariance": "0",
+            "lifeSpan": 40,
+            "lifeSpanVariance": "196",
+            "startAlpha": "1",
+            "startAlphaVariance": "0",
+            "finishAlpha": "0.35",
+            "finishAlphaVariance": 0.5,
+            "shapeIdList": [
+                "blur_circle"
+            ],
+            "startColor": {
+                "hue": 48,
+                "hueVariance": 41,
+                "saturation": "71",
+                "saturationVariance": "78",
+                "luminance": "83",
+                "luminanceVariance": "16"
             },
+            "blendMode": true,
+            "alphaCurveType": "1",
+            "VERSION": "1.0.0"
+        }        // パラメーターJSONのコピー＆ペースト ここまで---
+    );
 
-            size: {
-                value: { min: 1.8, max: 4.2 },     // 「もう少し大きく」寄り
-                animation: { enable: true, speed: 2.2, minimumValue: 1.2, sync: false }
-            },
+    // フレームレートの設定
+    createjs.Ticker.framerate = 60;
+    // requestAnimationFrameに従った呼び出し
+    createjs.Ticker.timingMode = createjs.Ticker.RAF;
+    // 定期的に呼ばれる関数を登録
+    createjs.Ticker.addEventListener("tick", handleTick);
+});
 
-            move: {
-                enable: true,
-                speed: isMobile ? 0.9 : 1.4,     // 速さ（もっと速くしたいなら 0.9〜1.2）
-                direction: "top",
-                straight: false,
-                random: true,
-                outModes: { default: "out" }
-            },
+function handleTick() {
+    // パーティクルの発生・更新
+    particleSystem.update();
 
-            // ふわっとした空気感
-            blur: { enable: true, value: 0.6 },
-
-            // キラッと感（強すぎるとチープなので控えめ）
-            glow: { enable: true, color: "#ffffff", value: 0.25 },
-
-            // 粒同士の線は無し（MVの雰囲気を壊しやすい）
-            links: { enable: false }
-        },
-
-        interactivity: {
-            events: {
-                onHover: { enable: false },
-                onClick: { enable: false },
-                resize: true
-            }
-        }
-    };
-
-    // 同IDでの二重初期化ガード（SPA/再描画対策）
-    const KEY = "__mv_particles_inited__";
-    if (host[KEY]) return;
-    host[KEY] = true;
-
-    window.tsParticles.load("mv-particles", config);
-})();
+    // 描画を更新する
+    stage.update();
+}
