@@ -9,8 +9,11 @@ class PsetFrontPartsView
      */
     public static function get_mv($args = [])
     {
-        $catch = isset($args['catch']) ? esc_html($args['catch']) : 'あなたのキャッチコピー';
-        $sub   = isset($args['sub'])   ? esc_html($args['sub'])   : 'サブコピー';
+        $catch_raw = isset($args['catch']) ? $args['catch'] : 'あなたのキャッチコピー';
+        $catch     = esc_html($catch_raw);
+        // PCのみ「、」で改行（SPではCSSでbrを非表示にする）
+        $catch = str_replace('、', '<br>', $catch);
+        $sub   = isset($args['sub']) ? esc_html($args['sub']) : 'サブコピー';
 
         ob_start();
 ?>

@@ -63,6 +63,19 @@ $bp-md: 768px;
 	padding-right: unset;
 }
 
+.l-container {
+	.l-header {
+		&__content {
+			display: none;
+		}
+	}
+}
+
+.c-section {
+	&.p-section-front-page-content {
+		padding-top: 0;
+	}
+}
 /* MV base */
 .mv.mv--abstract {
 	max-width: 100vw;
@@ -159,6 +172,13 @@ $bp-md: 768px;
 	letter-spacing: 0.04em;
 	font-size: clamp(28px, 4vw, 44px);
 	text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
+}
+
+/* SPでは「、」改行を無効化（1行表示） */
+@media (max-width: 768px) {
+	.mv.mv--abstract .mv__catch br {
+		display: none;
+	}
 }
 
 .mv.mv--abstract .mv__sub {
