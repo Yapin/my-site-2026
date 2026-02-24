@@ -37,6 +37,7 @@ class PsetSetupThemeFunc
             wp_enqueue_script('createjs', 'https://code.createjs.com/1.0.0/createjs.min.js', [], null, true);
             wp_enqueue_script('particlejs', 'https://cdn.rawgit.com/ics-creative/ParticleJS/release/1.0.0/libs/particlejs.min.js', [], null, true);
             wp_enqueue_script('mv-particles', MY_SNOW_MONKEY_URL . '/assets/js/mv-particles.js', ['createjs', 'particlejs'], '1.0.1', true);
+            wp_enqueue_script('mv-rotate', MY_SNOW_MONKEY_URL . '/assets/js/mv-rotate.js', [], '1.0.0', true);
         }
         wp_enqueue_script('contact-form', MY_SNOW_MONKEY_URL . '/assets/js/contact-form.js', [], '1.0.1', true);
     }
