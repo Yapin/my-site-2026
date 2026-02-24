@@ -313,3 +313,9 @@ $bp-md: 768px;
 		display: none !important; /* 粒も止める */
 	}
 }
+
+h3 {
+	&.wp-block-heading {
+		border: unset;
+	}
+}
