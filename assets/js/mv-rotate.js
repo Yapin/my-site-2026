@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			index = (index + 1) % words.length;
 			words[index].classList.add("active");
 		}, 4000);
-	}, 3000);
+	}, 1500);
 }
 );
 
