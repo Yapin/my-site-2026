@@ -177,15 +177,15 @@ $bp-md: 768px;
 // MV 内のローテーションテキスト
 .mv__rotate {
 	position: relative;
-	// display: inline-block;
+	display: inline-grid;
 	height: 1.2em;
 	overflow: hidden;
 	vertical-align: bottom;
+	align-items: center;
+	justify-items: center;
 
 	span {
-		position: absolute;
-		left: 0;
-		top: 0;
+		grid-area: 1 / 1;
 		opacity: 0;
 		transform: translateY(10px);
 		transition:
@@ -197,7 +197,6 @@ $bp-md: 768px;
 	span.active {
 		opacity: 1;
 		transform: translateY(0);
-		position: relative;
 	}
 }
 
