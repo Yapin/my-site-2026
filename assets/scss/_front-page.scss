@@ -177,7 +177,7 @@ $bp-md: 768px;
 // MV 内のローテーションテキスト
 .mv__rotate {
 	position: relative;
-	display: inline-block;
+	// display: inline-block;
 	height: 1.2em;
 	overflow: hidden;
 	vertical-align: bottom;
@@ -188,7 +188,9 @@ $bp-md: 768px;
 		top: 0;
 		opacity: 0;
 		transform: translateY(10px);
-		transition: opacity 0.8s ease, transform 0.8s ease;
+		transition:
+			opacity 0.8s ease,
+			transform 0.8s ease;
 		white-space: nowrap;
 	}
 
