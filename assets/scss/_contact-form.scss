@@ -12,6 +12,7 @@ form.snow-monkey-form {
 		background-image: unset !important;
 		color: #fff !important;
 		border: unset !important;
+		transition: 0.5s;
 		&:hover {
 			filter: brightness(90%);
 		}
