@@ -180,8 +180,8 @@ $bp-md: 768px;
 	display: inline-grid;
 	height: 1.2em;
 	overflow: hidden;
-	vertical-align: bottom;
-	align-items: center;
+	vertical-align: baseline;
+	align-items: end;
 	justify-items: center;
 
 	span {
