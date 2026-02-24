@@ -314,8 +314,6 @@ $bp-md: 768px;
 	}
 }
 
-h3 {
-	&.wp-block-heading {
-		border: unset;
-	}
+h3.wp-block-heading {
+	border: unset;
 }
