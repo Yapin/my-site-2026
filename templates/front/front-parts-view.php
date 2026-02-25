@@ -26,10 +26,13 @@ class PsetFrontPartsView
             // PCのみ「、」で改行（SPではCSSでbrを非表示にする）
             $catch_before = str_replace('、', '<br>', $catch_before);
             $catch_after  = str_replace('、', '<br>', $catch_after);
+            $catch_before = self::wrap_hiragana($catch_before);
+            $catch_after  = self::wrap_hiragana($catch_after);
         } else {
             $catch = esc_html($catch_raw);
             // PCのみ「、」で改行（SPではCSSでbrを非表示にする）
             $catch = str_replace('、', '<br>', $catch);
+            $catch = self::wrap_hiragana($catch);
         }
 
         ob_start();
@@ -63,5 +66,16 @@ class PsetFrontPartsView
 <?php
         $output = ob_get_clean();
         return $output;
+    }
+
+    /**
+     * 文字列中のひらがなだけを span で囲む（CSSでフォントサイズなどを調整するため）
+     *
+     * @param string $str すでに esc_html 済みで &lt;br&gt; などが含まれていてもよい
+     * @return string
+     */
+    private static function wrap_hiragana($str)
+    {
+        return preg_replace('/([ぁ-ゖ゙-ゟ]+)/u', '<span class="mv__catch-hiragana">$1</span>', $str);
     }
 }

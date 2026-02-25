@@ -52,3 +52,10 @@ h1.c-entry__body {
 		pointer-events: none;
 	}
 }
+
+footer.l-footer {
+	border: unset;
+	.c-copyright {
+		background-color: u.$color-background;
+	}
+}

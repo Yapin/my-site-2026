@@ -74,6 +74,7 @@ $bp-md: 768px;
 .c-section {
 	&.p-section-front-page-content {
 		padding-top: 0;
+		padding-bottom: 0;
 	}
 }
 /* MV base */
@@ -97,27 +98,27 @@ $bp-md: 768px;
 	padding-right: 0;
 }
 
-/* Background */
+/* Background（オレンジベース） */
 .mv.mv--abstract {
 	background:
-		radial-gradient(
-			70vmax 70vmax at 12% 85%,
-			rgba(255, 255, 255, 0.22) 0%,
-			rgba(255, 255, 255, 0.12) 35%,
-			rgba(255, 255, 255, 0) 65%
-		),
-		radial-gradient(
-			70vmax 60vmax at 88% 18%,
-			rgba(255, 255, 255, 0.95) 0%,
-			rgba(255, 244, 210, 0.55) 25%,
-			rgba(255, 220, 120, 0.18) 52%,
-			rgba(255, 210, 90, 0.06) 68%,
-			rgba(255, 210, 90, 0) 78%
-		),
-		radial-gradient(60vmax 60vmax at 6% 30%, rgba(255, 230, 170, 0.22) 0%, rgba(255, 230, 170, 0) 65%),
-		radial-gradient(70vmax 70vmax at 14% 55%, rgba(255, 215, 140, 0.18) 0%, rgba(255, 215, 140, 0) 70%),
-		radial-gradient(80vmax 80vmax at 22% 78%, rgba(255, 240, 190, 0.14) 0%, rgba(255, 240, 190, 0) 75%),
-		linear-gradient(90deg, #6e7a22 0%, #b4a044 18%, #e5c067 42%, #f2d19a 65%, #fff3e2 100%);
+		// radial-gradient(
+		// 	70vmax 70vmax at 12% 85%,
+		// 	rgba(255, 255, 255, 0.22) 0%,
+		// 	rgba(255, 255, 255, 0.12) 35%,
+		// 	rgba(255, 255, 255, 0) 65%
+		// ),
+		// radial-gradient(
+		// 	70vmax 60vmax at 88% 18%,
+		// 	rgba(255, 255, 255, 0.95) 0%,
+		// 	rgba(255, 248, 235, 0.6) 25%,
+		// 	rgba(255, 220, 180, 0.2) 52%,
+		// 	rgba(255, 200, 150, 0.08) 68%,
+		// 	rgba(255, 200, 150, 0) 78%
+		// ),
+		// radial-gradient(60vmax 60vmax at 6% 30%, rgba(255, 235, 210, 0.25) 0%, rgba(255, 235, 210, 0) 65%),
+		// radial-gradient(70vmax 70vmax at 14% 55%, rgba(255, 218, 180, 0.2) 0%, rgba(255, 218, 180, 0) 70%),
+		// radial-gradient(80vmax 80vmax at 22% 78%, rgba(255, 240, 215, 0.16) 0%, rgba(255, 240, 215, 0) 75%),
+		linear-gradient(90deg, #b85a20 0%, #d97a38 18%, u.$color-background-main 42%, #f5b070 65%, #fff0e0 100%);
 	filter: saturate(1.05);
 }
 
@@ -162,7 +163,7 @@ $bp-md: 768px;
 	background: transparent;
 	padding: clamp(18px, 3.5vw, 44px);
 	border-radius: 24px;
-	background: rgba(0, 0, 0, 0.08);
+	// background: rgba(0, 0, 0, 0.08);
 }
 
 .mv.mv--abstract .mv__catch {
@@ -174,6 +175,11 @@ $bp-md: 768px;
 	text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
 }
 
+// キャッチコピー内のひらがなだけ少し小さく
+.mv.mv--abstract .mv__catch-hiragana {
+	font-size: 0.9em;
+}
+
 // MV 内のローテーションテキスト
 .mv__rotate {
 	position: relative;
@@ -183,6 +189,7 @@ $bp-md: 768px;
 	vertical-align: baseline;
 	align-items: end;
 	justify-items: center;
+	font-weight: bold;
 
 	span {
 		grid-area: 1 / 1;
@@ -316,4 +323,35 @@ $bp-md: 768px;
 
 h3.wp-block-heading {
 	border: unset;
+}
+
+// =====================================================
+// リード文セクション: MVと同じ横グラデで始め、下へ徐々に指定オレンジに
+// =====================================================
+.front__lead {
+	// 下層: 左をやや明るめにした横グラデ（MVのradialで明るい左に合わせる）
+	// 上層: 透明を長めに取り、中間ストップを細かくして境目をぼかす
+	background:
+		linear-gradient(
+			180deg,
+			transparent 0%,
+			transparent 42%,
+			rgba(255, 146, 69, 0.08) 55%,
+			rgba(255, 146, 69, 0.22) 68%,
+			rgba(255, 146, 69, 0.42) 80%,
+			rgba(255, 146, 69, 0.7) 90%,
+			u.$color-background-main 100%
+		),
+		// linear-gradient(90deg, #d97a38 0%, #e08a45 22%, u.$color-background-main 45%, #f5b070 72%, #fff0e0 100%);
+		linear-gradient(90deg, #b85a20 0%, #d97a38 18%, u.$color-background-main 42%, #f5b070 60%, #fff0e0 100%);
+}
+
+// =====================================================
+// 活動内容セクション
+// =====================================================
+
+.front__activities {
+	a:where(:not(.wp-element-button)) {
+		color: #0b3659;
+	}
 }

@@ -22,6 +22,9 @@ $color-background-header-footer: #133368;
 $color-text-header-footer: #fff;
 
 $color-infomation-block: #204ca3;
+
+$color-background: #ff9245;
+$color-background-main: #ff9245; // メイン背景オレンジ（MV下リード文セクションなど）
 // min-widthで利用
 $breakpoint-up: (
 	'sm': 'screen and (min-width: 375px)',
