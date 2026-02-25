@@ -173,6 +173,7 @@ $bp-md: 768px;
 	letter-spacing: 0.04em;
 	font-size: clamp(28px, 4vw, 44px);
 	text-shadow: 0 2px 14px rgba(0, 0, 0, 0.28);
+	font-feature-settings: 'palt';
 }
 
 // キャッチコピー内のひらがなだけ少し小さく
