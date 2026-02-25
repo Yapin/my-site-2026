@@ -17,4 +17,8 @@ form.snow-monkey-form {
 			filter: brightness(90%);
 		}
 	}
+	input::placeholder {
+		color: #c1c1c1;
+		opacity: 1;
+	}
 }
