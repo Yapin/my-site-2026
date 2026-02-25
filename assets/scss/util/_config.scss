@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use 'sass:map';
 // 共通変数などを格納するSCSSファイルです
 
 $sizes: xl, lg, md, sm, xs;
@@ -45,13 +46,13 @@ $breakpoint-down: (
 // @mixinの定義
 // min-widthで利用
 @mixin mq-up($breakpoint: sm) {
-	@media #{map-get($breakpoint-up, $breakpoint)} {
+	@media #{map.get($breakpoint-up, $breakpoint)} {
 		@content;
 	}
 }
 // max-widthで利用
 @mixin mq-down($breakpoint: sm) {
-	@media #{map-get($breakpoint-down, $breakpoint)} {
+	@media #{map.get($breakpoint-down, $breakpoint)} {
 		@content;
 	}
 }
