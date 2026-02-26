@@ -354,5 +354,10 @@ h3.wp-block-heading {
 .front__activities {
 	a:where(:not(.wp-element-button)) {
 		color: #812e0d;
+		text-decoration: underline;
+
+		&:hover {
+			text-decoration: none;
+		}
 	}
 }
