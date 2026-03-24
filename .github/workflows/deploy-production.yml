@@ -27,10 +27,10 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
-          server: sv14373.xserver.jp
-          username: github@yapin-et-creation.com
-          password: 7gYvYjjFUHuD
+          server: ${{ secrets.FTP_SERVER_PRODUCTION }}
+          username: ${{ secrets.FTP_USERNAME_PRODUCTION }}
+          password: ${{ secrets.FTP_PASSWORD_PRODUCTION }}
           port: ${{ secrets.FTP_PORT }}
           protocol: ${{ secrets.FTP_PROTOCOL }}
           local-dir: ./
-          server-dir: ./wp-content/plugins/my-snow-monkey/
+          server-dir: ${{ secrets.REMOTE_PATH_PRODUCTION }}
