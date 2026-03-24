@@ -33,4 +33,4 @@ jobs:
           port: ${{ secrets.FTP_PORT }}
           protocol: ${{ secrets.FTP_PROTOCOL }}
           local-dir: ./
-          server-dir: /yapin-et-creation.com/public_html/wp-content/plugins/my-snow-monkey
+          server-dir: /yapin-et-creation.com/public_html/wp-content/plugins/my-snow-monkey/
