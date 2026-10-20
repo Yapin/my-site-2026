@@ -59,3 +59,18 @@ footer.l-footer {
 		background-color: u.$color-background;
 	}
 }
+
+// Snow Monkey FormsでCloudflare Turnstileの表示位置を調整する
+.snow-monkey-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.snow-monkey-form .snow-monkey-forms-turnstile {
+	order: 100;
+	margin: 1rem 0;
+}
+
+.snow-monkey-form .smf-action {
+	order: 101;
+}
