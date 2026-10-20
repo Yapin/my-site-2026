@@ -53,4 +53,13 @@ class PsetSetupThemeFunc
         }
         return $classes;
     }
+
+    /**
+     * cloudflare turnstile のテーマを変更する
+     *
+     */
+    public static function change_turnstile_theme()
+    {
+        return 'light';
+    }
 }
